@@ -22,8 +22,8 @@ bus.write_byte_data(0x5F, 0x20, 0x85)
 time.sleep(0.5)
 
 # HTS221 address, 0x5F(95)
-# Read Calliberation values from non-volatile memory of the device
-# Humidity calliberation values
+# Read Calibration values from non-volatile memory of the device
+# Humidity Calibration values
 # Read data back from 0x30(48), 1 byte
 val = bus.read_byte_data(0x5F, 0x30)
 H0 = val / 2
@@ -42,7 +42,7 @@ val0 = bus.read_byte_data(0x5F, 0x3A)
 val1 = bus.read_byte_data(0x5F, 0x3B)
 H3 = ((val1 & 0xFF) * 256) + (val0 & 0xFF)
 
-# Temperature calliberation values
+# Temperature Calibration values
 # Read data back from 0x32(50), 1 byte
 T0 = bus.read_byte_data(0x5F, 0x32)
 T0 = (T0 & 0xFF)
@@ -55,7 +55,7 @@ T1 = (T1 & 0xFF)
 raw = bus.read_byte_data(0x5F, 0x35)
 raw = (raw & 0x0F)
 
-# Convert the temperature calliberation values to 10-bits
+# Convert the temperature Calibration values to 10-bits
 T0 = ((raw & 0x03) * 256) + T0
 T1 = ((raw & 0x0C) * 64) + T1
 
