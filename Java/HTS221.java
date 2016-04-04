@@ -93,6 +93,6 @@ public class HTS221
 		// Output data to screen
 		System.out.printf("Relative Humidity : %.2f %% RH %n", humidity);
 		System.out.printf("Temperature in Celsius : %.2f C %n", cTemp);
-		System.out.printf("Temperature in Farhenheit : %.2f F %n", fTemp);
+		System.out.printf("Temperature in Fahrenheit : %.2f F %n", fTemp);
 	}
 }
