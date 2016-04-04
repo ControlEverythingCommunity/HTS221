@@ -26,8 +26,8 @@ public class HTS221
 		device.write(0x20, (byte)0x85);
 		Thread.sleep(500);
 
-		// Read Calliberation values from the non-volatile memory of the device
-		// Humidity calliberation values
+		// Read Calibration values from the non-volatile memory of the device
+		// Humidity Calibration values
 		byte[] val = new byte[2];
 		// Read 1 byte of data from address 0x30(48)
 		val[0] = (byte)device.read(0x30);
@@ -49,7 +49,7 @@ public class HTS221
 		val[1] = (byte)device.read(0x3B);
 		int H3 = ((val[1] & 0xFF) * 256) + (val[0] & 0xFF);
 
-		// Temperature calliberation values
+		// Temperature Calibration values
 		// Read 1 byte of data from address 0x32(50)
 		int T0 = ((byte)device.read(0x32) & 0xFF);
 		// Read 1 byte of data from address 0x33(51)
@@ -58,7 +58,7 @@ public class HTS221
 		// Read 1 byte of data from address 0x35(53)
 		int raw = ((byte)device.read(0x35) & 0x0F);
 		
-		// Convert the temperature calliberation values to 10-bits
+		// Convert the temperature Calibration values to 10-bits
 		T0 = ((raw & 0x03) * 256) + T0;
 		T1 = ((raw & 0x0C) * 64) + T1;
 
