@@ -10,9 +10,9 @@
 // HTS221 I2C address is 0x5F
 #define Addr 0x5F
 
-float humidity = 0.0;
-float cTemp = 0.0;
-float fTemp = 0.0;
+double humidity = 0.0;
+double cTemp = 0.0;
+double fTemp = 0.0;
 int temp = 0;
 void setup() 
 {
