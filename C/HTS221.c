@@ -5,6 +5,7 @@
 // https://www.controleverything.com/content/Humidity?sku=HTS221_I2CS#tabs-0-product_tabset-2
 
 #include <stdio.h>
+#include <unistd.h>
 #include <stdlib.h>
 #include <linux/i2c-dev.h>
 #include <sys/ioctl.h>
@@ -42,7 +43,7 @@ void main()
 	//Read 1 byte of data from address(0x30)
 	char reg[1] = {0x30};
 	write(file, reg, 1);
-	char data[1] = {0};
+	char data[4] = {0};
 	if(read(file, data, 1) != 1)
 	{
 		printf("Erorr : Input/output Erorr \n");
@@ -176,7 +177,7 @@ void main()
 		float fTemp = (cTemp * 1.8 ) + 32;
 		
 		// Output data to screen
-		printf("Relative humidity : %.2f %RH \n", humidity);
+		printf("Relative humidity : %.2f %%RH \n", humidity);
 		printf("Temperature in Celsius : %.2f C \n", cTemp);
 		printf("Temperature in Fahrenheit : %.2f F \n", fTemp);
 	}
